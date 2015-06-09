@@ -11,7 +11,7 @@ graph:
     params:
       - name: image
         description: The redis master part
-        default: jasonbrooks/redis 
+        default: stefwalter/redis:latest
       - name: hostport
         description: The host TCP port as the external endpoint
         default: 6379
@@ -23,7 +23,7 @@ graph:
     params:
       - name: image
         description: The redis slave part
-        default: jasonbrooks/redis
+        default: stefwalter/redis-slave:v2
       - name: hostport
         description: The host TCP port as the external endpoint
         default: 6379

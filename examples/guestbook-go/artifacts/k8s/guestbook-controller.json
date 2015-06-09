@@ -1,38 +1,38 @@
-{
-   "kind":"ReplicationController",
-   "apiVersion":"v1beta3",
-   "metadata":{
-      "name":"guestbook",
-      "labels":{
-         "name":"guestbook"
-      }
-   },
-   "spec":{
-      "replicas":3,
-      "selector":{
-         "name":"guestbook"
+    {
+      "kind": "ReplicationController",
+      "apiVersion": "v1beta3",
+      "metadata": {
+        "name": "frontend",
+        "labels": {
+          "name": "frontend"
+        }
       },
-      "template":{
-         "metadata":{
-            "labels":{
-               "name":"guestbook"
+      "spec": {
+        "replicas": 3,
+        "selector": {
+          "name": "frontend"
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "name":"frontend"
             }
-         },
-         "spec":{
-            "containers":[
-               {
-                  "image":"$image",
-                  "name":"guestbook",
-                  "ports":[
-                     {
-                        "name":"http-server",
-                        "containerPort":3000,
-                        "protocol":"TCP"
-                     }
-                  ]
-               }
+          },
+          "spec": {
+            "containers": [
+              {
+                "name": "php-redis",
+                "image":"$image",
+                "image": "stefwalter/example-guestbook-php-redis:v2",
+                "ports": [
+                   {
+                     "containerPort": 80,
+                     "protocol": "TCP"
+                   }
+                ]
+              }
             ]
-         }
+          }
+        }
       }
-   }
-}
+    }

@@ -1,23 +1,22 @@
 {
-   "kind":"Service",
-   "apiVersion":"v1beta3",
-   "metadata":{
-      "name":"guestbook",
-      "labels":{
-         "name":"guestbook"
+      "kind": "Service",
+      "apiVersion": "v1beta3",
+      "metadata": {
+        "name": "frontend",
+        "labels": {
+          "name": "frontend"
+        }
+      },
+      "spec": {
+        "ports": [
+          {
+            "port":$hostport,
+            "targetPort":80,
+            "protocol":"TCP"
+          }
+        ],
+        "selector":{
+          "name":"frontend"
+        }
       }
-   },
-   "spec":{
-      "publicIPs": ["$publicip"],
-      "ports": [
-         {
-           "port":3000,
-           "targetPort":"http-server",
-           "protocol":"TCP"
-         }
-      ],
-      "selector":{
-         "name":"guestbook"
-      }
-   }
-}
+    }
