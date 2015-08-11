@@ -23,10 +23,14 @@ graph:
     params:
       - name: image
         description: The redis slave part
+<<<<<<< HEAD
         default: stefwalter/redis-slave:v2
+=======
+        default: jasonbrooks/redis
       - name: master_hostport
         description: The host TCP port of the redis master
         default: 6379
+>>>>>>> deec056d2798503da0e177a14ef10915f0f1835c
       - name: hostport
         description: The host TCP port as the external endpoint
         default: 6379
@@ -34,4 +38,3 @@ graph:
       kubernetes:
         - file://artifacts/k8s/redis-slave-controller.json
         - file://artifacts/k8s/redis-slave-service.json
-
